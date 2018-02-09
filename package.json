@@ -1,0 +1,28 @@
+{
+  "name": "radio-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "forever": "pm2 start . --name=\"crawler\" && pm2 show crawler && pm2 monit",
+    "stop-forever": "pm2 stop all",
+    "start": "node .",
+    "build": "babel src -d dist",
+    "dev": "babel-node src/index.js",
+    "redis": "docker run --name redis -p 6379:6379 -d redis"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "mississippi": "^2.0.0",
+    "pm2": "^2.9.3",
+    "request": "^2.83.0",
+    "rotating-file-stream": "^1.3.4",
+    "rsmq": "^0.8.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
